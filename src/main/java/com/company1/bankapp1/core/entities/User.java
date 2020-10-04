@@ -7,11 +7,13 @@ import lombok.Setter;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,7 +21,7 @@ import java.util.List;
 @Table(name="\"USER\"")
 public class User {
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy= GenerationType.AUTO)
 	@Setter(AccessLevel.NONE)
 	private Long id;
 
@@ -40,7 +42,6 @@ public class User {
 	private String creator;
 
 
-
 	@OneToMany(
 					mappedBy = "user",
 					cascade = CascadeType.ALL,
@@ -50,13 +51,29 @@ public class User {
 
 
 
-	public User(String firstName, String lastName){
+	public User(String firstName, String lastName, String username, boolean isAdmin){
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.username = username;
+		this.isAdmin = isAdmin;
+		this.accounts = new ArrayList<>();
+	}
+
+	public User(String firstName, String lastName, String username, boolean isAdmin, List<Account> accounts){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.isAdmin = isAdmin;
+		this.accounts = accounts;
 	}
 
 
-
+	public void addAccount(Account account) {
+		this.accounts.add(account);
+		if (account.getUser() != this) {
+			account.setUser(this);
+		}
+	}
 
 
 }
