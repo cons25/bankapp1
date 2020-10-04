@@ -41,7 +41,7 @@ public class StartApplication implements CommandLineRunner {
         userService.createUser("user1_first_name", "user2_last_name", "admin1", true);
         userService.createUser("user2_first_name", "user2_last_name", "user2", false);
 
-        User user3 = new User("user3_first_name", "user3_last_name", "user3", false);
+        User user3 = new User("user3_first_name", "user3_last_name", "user3", false, "CURRENT_ADMIN'S_USERNAME");
         Account acc1 = new Account();
         Account acc2 = new Account();
         user3.addAccount(acc1);

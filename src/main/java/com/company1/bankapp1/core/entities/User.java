@@ -59,13 +59,21 @@ public class User {
 		this.accounts = new ArrayList<>();
 	}
 
+	public User(String firstName, String lastName, String username, boolean isAdmin, String creator){
+		this(firstName, lastName, username, isAdmin);
+		this.creator = creator;
+	}
+
 	public User(String firstName, String lastName, String username, boolean isAdmin, List<Account> accounts){
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.username = username;
-		this.isAdmin = isAdmin;
+		this(firstName, lastName, username, isAdmin);
 		this.accounts = accounts;
 	}
+
+	public User(String firstName, String lastName, String username, boolean isAdmin, String creator, List<Account> accounts){
+		this(firstName, lastName, username, isAdmin, creator);
+		this.accounts = accounts;
+	}
+
 
 
 	public void addAccount(Account account) {
