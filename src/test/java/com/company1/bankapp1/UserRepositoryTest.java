@@ -17,6 +17,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
+
+//TODO: configure test context not ot fail from "UserService bean autowiring error"
+//TODO: UserService temporarily commented out in main app
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
@@ -28,7 +32,8 @@ public class UserRepositoryTest {
 	@Autowired
 	private UserRepository repository;
 
-// TODO: add also UserServiceTest
+// TODO: add also UserServiceTests
+// TODO: add also CommandHandler tests
 
 // TODO: add tests/asserts for child collection (Accounts)
 

@@ -1,10 +1,10 @@
 package com.company1.bankapp1;
 
+import com.company1.bankapp1.controllers.CommandHandler;
 import com.company1.bankapp1.core.entities.Account;
 import com.company1.bankapp1.core.entities.User;
 import com.company1.bankapp1.core.repositories.AccountRepository;
 import com.company1.bankapp1.core.repositories.UserRepository;
-import com.company1.bankapp1.core.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class StartApplication implements CommandLineRunner {
@@ -33,11 +31,17 @@ public class StartApplication implements CommandLineRunner {
         SpringApplication.run(StartApplication.class, args);
     }
 
+
     @Override
     public void run(String... args) throws InterruptedException {
-
         log.info("StartApplication...");
 
+        // TODO: make CommandHandler work with UserService
+        // TODO: consider making CommandHandler a bean
+        CommandHandler.handleCommand(args);
+
+
+        // TODO: remove comments and remove test cases to test-branch
 //        userService.createUser("user1_first_name", "user2_last_name", "admin1", true);
 //        userService.createUser("user2_first_name", "user2_last_name", "user2", false);
 
@@ -50,7 +54,6 @@ public class StartApplication implements CommandLineRunner {
         userRepository.save(user3);
 
 //        userService.createUser(user3);
-
 
     }
 
