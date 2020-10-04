@@ -2,6 +2,7 @@ package com.company1.bankapp1.core.entities;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name="ACCOUNT")
 public class Account {
 
@@ -27,9 +29,6 @@ public class Account {
 	@Setter(AccessLevel.NONE)
 	private User user;
 
-	public Account() {
-
-	}
 
 	public void setUser(User user) {
 		this.user = user;

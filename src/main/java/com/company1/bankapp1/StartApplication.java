@@ -26,8 +26,8 @@ public class StartApplication implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);
@@ -38,8 +38,8 @@ public class StartApplication implements CommandLineRunner {
 
         log.info("StartApplication...");
 
-        userService.createUser("user1_first_name", "user2_last_name", "admin1", true);
-        userService.createUser("user2_first_name", "user2_last_name", "user2", false);
+//        userService.createUser("user1_first_name", "user2_last_name", "admin1", true);
+//        userService.createUser("user2_first_name", "user2_last_name", "user2", false);
 
         User user3 = new User("user3_first_name", "user3_last_name", "user3", false, "CURRENT_ADMIN'S_USERNAME");
         Account acc1 = new Account();
@@ -47,7 +47,9 @@ public class StartApplication implements CommandLineRunner {
         user3.addAccount(acc1);
         user3.addAccount(acc2);
 
-        userService.createUser(user3);
+        userRepository.save(user3);
+
+//        userService.createUser(user3);
 
 
     }
