@@ -6,9 +6,9 @@ import com.company1.bankapp1.core.exceptions.NotYetImplementedException;
 public class CommandHandler {
 
 
-	public static final String COMMAND_CREATE_USER = "COMMAND_CREATE_USER";
-	public static final String COMMAND_UPDATE_USER = "COMMAND_UPDATE_USER";
-	public static final String COMMAND_DELETE_USER = "COMMAND_DELETE_USER";
+	public static final String COMMAND_CREATE_USER = "create-user";
+	public static final String COMMAND_UPDATE_USER = "update-user";
+	public static final String COMMAND_DELETE_USER = "delete-user";
 
 	public static void handleCommand(String[] args) {
 

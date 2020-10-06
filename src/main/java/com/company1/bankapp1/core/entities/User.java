@@ -78,11 +78,12 @@ public class User {
 
 
 
-	public void addAccount(Account account) {
+	public User addAccount(Account account) {
 		this.accounts.add(account);
 		if (account.getUser() != this) {
 			account.setUser(this);
 		}
+		return this;
 	}
 
 
